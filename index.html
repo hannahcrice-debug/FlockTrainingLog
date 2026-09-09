@@ -295,7 +295,7 @@
 
   <header class="mast">
     <h1>Flock Training Log</h1>
-    <p>Short sessions, one bird at a time, every skill built on the last. <span style="opacity:.6">Build 8</span></p>
+    <p>Short sessions, one bird at a time, every skill built on the last. <span style="opacity:.6">Build 10</span></p>
     <div class="tally">
       <div><b id="tSess">0</b>sessions logged</div>
       <div><b id="tWeek">0</b>this week</div>
@@ -324,6 +324,7 @@
         <span>Session length</span>
         <button class="minopt" data-min="3">3</button>
         <button class="minopt" data-min="5">5</button>
+        <button class="minopt" data-min="8">8</button>
         <button class="minopt" data-min="10">10</button>
       </div>
     </div>
@@ -624,10 +625,10 @@ const TALKERS = ["eclectus","hahns","irn","gcc"];
 const SEED_BIRDS = [
   {id:"aila",  name:"Áila",       species:"Eclectus hen",        type:"eclectus", color:"#F2496B"},
   {id:"zeke",  name:"Ezekiel",    species:"Hahn's macaw, baby",  type:"hahns",    color:"#7FD14A"},
-  {id:"samson",name:"Samson",     species:"Indian ringneck",     type:"irn",      color:"#4FD98A"},
-  {id:"lou",   name:"Lou Bird",   species:"Green cheek conure",  type:"gcc",      color:"#C7DB5A"},
-  {id:"lin1",  name:"Linnie one", species:"Lineolated parakeet", type:"linnie",   color:"#6FE0C0"},
-  {id:"lin2",  name:"Linnie two", species:"Lineolated parakeet", type:"linnie",   color:"#9BE07A"}
+  {id:"samson",name:"Samson",     species:"Indian ringneck",     type:"irn",      color:"#F4F1E8"},
+  {id:"lou",   name:"Lou Dog",    species:"Green cheek conure",  type:"gcc",      color:"#12A69B"},
+  {id:"lin1",  name:"Linnie one", species:"Lineolated parakeet", type:"linnie",   color:"#F2D544"},
+  {id:"lin2",  name:"Linnie two", species:"Lineolated parakeet", type:"linnie",   color:"#8DE6E0"}
 ];
 
 const SEED_WORDS = [
@@ -682,6 +683,8 @@ async function load(){
   if(!S.birds.length) S.birds = SEED_BIRDS.slice();
   const z = S.birds.find(b => b.id === "zeke");
   if(z && z.name === "Zeke") z.name = "Ezekiel";
+  const lu = S.birds.find(b => b.id === "lou");
+  if(lu && lu.name === "Lou Bird") lu.name = "Lou Dog";
   sel = S.birds[0].id;
   renderAll();
 }
